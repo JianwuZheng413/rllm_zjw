@@ -1,28 +1,45 @@
-# rLLM
+# rLLM (**[Documentation](https:/)**|**[Paper](https://arxiv.org/abs/2407.20157)**)
 
-**rLLM** (relationLLM) focuses on LLM-powered relational data learning, prioritizing: Accuracy, Efficiency, and Economy.
+Note: we will release our first version (v0.1) at August 11, 2024.
 
-- Accuracy: quality of being true, correct, or exact.
-- Efficiency: running time, measured in seconds.
-- Economy: money cost, measured in dollars.
+**rLLM** (relationLLM) is an easy-to-use Pytorch library for Relational Table Learning (RTL) with LLMs, by performing two key functions:
+1. Breaks down state-of-the-art GNNs, LLMs, and TNNs as standardized modules.
+2. Facilitates novel model building in a "combine, align, and co-train" way using these modules.  
 
-## Dependencies
 
-- pytorch	2.1.2
-- scikit-learn	1.4.0
-- llama_cpp_python	0.2.52
-- langchain	0.1.8
-- langchain-community	0.0.21
-- langchain-experimental	0.0.52
-- tiktoken	0.6.0
-- sentence-transformers	2.3.1
-- numpy	1.26.4
-- pandas	2.1.4
+<p align="center">
+  <img width="400" height="310" src="https://zhengwang100.github.io/img/rllm/rllm_overview.png">
+</p>
 
-## LLM models
+### How to Try:
+Let's run an RTL-type method [BRIDGE](./examples/bridge) as an example:
 
-- We recommmend 4-bit quantized Gemma 2b model, which can be Downloaded from [HuggingFace](https://huggingface.co/lmstudio-ai/gemma-2b-it-GGUF/blob/main/gemma-2b-it-q4_k_m.gguf).
+```bash
+# cd ./examples
+# set parameters if necessary
 
-## LM Model
+python bridge_tacm12k.py
+python bridge_tlf2k.py
+python bridge_tml1m.py
+```
 
-- We recommend a light BERT-like model all-MiniLM-L6-v2 to make sentence embedding, which can be obtained directly from [HuggingFace](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2).
+
+### Highlight Features: 
+- **LLM-friendly:** Modular interface designed for LLM-oriented applications, integrating smoothly with LangChain and Hugging Face transformers.
+- **One-Fit-All Potential:**  Processes various graphs (like Social/Citation/E-commerce Networks) by treating them as multiple tables linked by foreigner keys. 
+- **Novel Datasets:**  Introduces three new relational table datasets useful for RTL model design. Includes the standard classification task, with examples.
+- **Community Support:**  Maintained by students and teachers from Shanghai Jiao Tong University and Tsinghua University. Supports the SJTU undergraduate course "Content Understanding (NIS4301)" and the graduate course "Social Network Analysis (NIS8023)".
+
+
+## Citation
+```
+@article{rllm2024,
+      title={rLLM: Relational Table Learning with LLMs}, 
+      author={Weichen Li and Xiaotong Huang and Jianwu Zheng and Zheng Wang and Chaokun Wang and Li Pan and Jianhua Li},
+      year={2024},
+      eprint={2407.20157},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2407.20157}, 
+}
+```
