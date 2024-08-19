@@ -1,7 +1,5 @@
 # rLLM (**[Documentation](https://relationllm.readthedocs.io/en/latest/)**|**[Paper](https://arxiv.org/abs/2407.20157)**)
 
-Note: we will release our first version (v0.1) at August 11, 2024.
-
 **rLLM** (relationLLM) is an easy-to-use Pytorch library for Relational Table Learning (RTL) with LLMs, by performing two key functions:
 1. Breaks down state-of-the-art GNNs, LLMs, and TNNs as standardized modules.
 2. Facilitates novel model building in a "combine, align, and co-train" way using these modules.  
@@ -18,9 +16,9 @@ Let's run an RTL-type method [BRIDGE](./examples/bridge) as an example:
 # cd ./examples
 # set parameters if necessary
 
-python bridge_tacm12k.py
-python bridge_tlf2k.py
-python bridge_tml1m.py
+python bridge/bridge_tacm12k.py
+python bridge/bridge_tlf2k.py
+python bridge/bridge_tml1m.py
 ```
 
 

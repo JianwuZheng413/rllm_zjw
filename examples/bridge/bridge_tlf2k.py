@@ -1,3 +1,9 @@
+# The BRIDGE method from the "rLLM: Relational Table Learning with LLMs" paper.
+# ArXiv: https://arxiv.org/abs/2407.20157
+
+# Datasets  TLF2K
+# Acc       0.357
+
 import time
 import argparse
 import os.path as osp
@@ -109,6 +115,8 @@ def test_epoch():
 model = Bridge(
     table_hidden_dim=args.tab_dim,
     table_output_dim=emb_size,
+    graph_layers=2,
+    graph_hidden_dim=emb_size,
     graph_output_dim=output_dim,
     stats_dict=graph.artist_table.stats_dict,
     graph_dropout=args.gcn_dropout,
