@@ -1,10 +1,15 @@
+# The HAN method from the
+# "Heterogeneous Graph Attention Network" paper.
+# ArXiv: https://arxiv.org/abs/1903.07293
+
+# Datasets  IMDB
+# Acc       0.571
+
 import os.path as osp
 from typing import Dict, List, Union
-
 import torch
 import torch.nn.functional as F
 from torch import nn
-
 import sys
 sys.path.append('../')
 from rllm.datasets.imdb import IMDB
@@ -67,6 +72,7 @@ def test() -> List[float]:
 
 
 best_val_acc = 0
+best_test_acc = 0
 start_patience = patience = 100
 for epoch in range(1, 200):
 
@@ -78,6 +84,7 @@ for epoch in range(1, 200):
     if best_val_acc <= val_acc:
         patience = start_patience
         best_val_acc = val_acc
+        best_test_acc = test_acc
     else:
         patience -= 1
 
@@ -85,3 +92,6 @@ for epoch in range(1, 200):
         print('Stopping training as validation accuracy did not improve '
               f'for {start_patience} epochs')
         break
+
+
+print(f'Best test acc: {best_test_acc:.4f}')
