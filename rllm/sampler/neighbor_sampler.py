@@ -7,7 +7,6 @@ from torch_sparse import SparseTensor
 
 from rllm.utils.sparse import is_torch_sparse_tensor
 
-
 class NeighborSampler(torch.utils.data.DataLoader):
     r"""The neighbor sampler from the `"Inductive Representation Learning on
     Large Graphs" <https://arxiv.org/abs/1706.02216>`_ paper, which allows
